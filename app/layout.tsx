@@ -5,8 +5,8 @@ import './globals.css';
 const geistMono = Geist_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Todo List',
-  description: 'A simple todo list application',
+  title: 'Scratch Bridge PoC',
+  description: 'A system that helps Scratchers utilize AI to bring their ideas to life by converting JavaScript code to and from into Scratch',
 };
 
 export default function RootLayout({

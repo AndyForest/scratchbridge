@@ -1,0 +1,8 @@
+
+
+### Test
+POST http://localhost:3000/api/generate-json HTTP/1.1
+Content-Type: application/json
+x-api-key: wR5uUCYIL21JQxPAAJAL14VVFh62YbHD4Kjdn7om
+
+{"code":"// 12:22 Create a new Scratch project instance\nconst game = new ScratchGame();\n\n// Create a score variable\nconst score = game.createVariable('score', 0);\n"}
