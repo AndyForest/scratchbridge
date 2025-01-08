@@ -39,7 +39,11 @@ export default function Home() {
         if (done) break;
 
         resultText += new TextDecoder().decode(value);
-        setResult(resultText);
+
+        // Pull out the scratchJson from the response, convert the /n and other escaped characters to make it readable, and set it as the result
+        const scratchJson = JSON.parse(resultText).scratchJson;
+
+        setResult(scratchJson);
       }
     } catch (err) {
       setError("Failed to process the request");
