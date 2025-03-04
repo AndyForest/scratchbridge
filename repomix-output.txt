@@ -1,0 +1,1283 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+================================================================
+File Summary
+================================================================
+
+Purpose:
+--------
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+
+File Format:
+------------
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Multiple file entries, each consisting of:
+  a. A separator line (================)
+  b. The file path (File: path/to/file)
+  c. Another separator line
+  d. The full contents of the file
+  e. A blank line
+
+Usage Guidelines:
+-----------------
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+Notes:
+------
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+
+Additional Info:
+----------------
+
+================================================================
+Directory Structure
+================================================================
+.eslintrc.json
+.example_env
+.gitignore
+app/actions.ts
+app/api/generate-json/route.ts
+app/globals.css
+app/layout.tsx
+app/page.tsx
+app/pg_postgres_starter.tsx
+app/todo-list.tsx
+components/CodeEditor.tsx
+components/ResultDisplay.tsx
+docker-compose.yml
+drizzle.config.ts
+instrumentation.ts
+lib/db/drizzle.ts
+lib/db/migrate.ts
+lib/db/migrations/0000_bitter_talisman.sql
+lib/db/migrations/meta/_journal.json
+lib/db/migrations/meta/0000_snapshot.json
+lib/db/queries.ts
+lib/db/schema.ts
+lib/db/seed.ts
+lib/db/setup.ts
+lib/dsl/generator.ts
+lib/dsl/validation.ts
+lib/llm/llmClient.ts
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+testing/testapi.http
+tsconfig.json
+
+================================================================
+Files
+================================================================
+
+================
+File: .eslintrc.json
+================
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ]
+}
+
+================
+File: .example_env
+================
+# Postgres
+POSTGRES_URL=postgres://postgres:postgres@localhost:54322/postgres
+
+
+# Get your LangFuse API key here:
+# https://cloud.langfuse.com/
+LANGFUSE_SECRET_KEY="sk-..."
+LANGFUSE_PUBLIC_KEY="pk-..."
+# 🇪🇺 EU region
+LANGFUSE_BASEURL="https://cloud.langfuse.com"
+# 🇺🇸 US region
+# LANGFUSE_BASEURL="https://us.cloud.langfuse.com"
+
+
+# Get your DeepSeek API key here:
+# https://platform.deepseek.com/
+DEEPSEEK_API_KEY="sk-..."
+DEEPSEEK_BASEURL="https://api.deepseek.com/v1"
+
+# Get your GROQ API Key here -
+# https://console.groq.com/keys
+# You only need this environment variable set if you want to use Groq models
+GROQ_API_KEY=
+
+# Get your HuggingFace API Key here -
+# https://huggingface.co/settings/tokens
+# You only need this environment variable set if you want to use HuggingFace models
+HuggingFace_API_KEY=
+
+
+# Get your Open AI API Key by following these instructions -
+# https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
+# You only need this environment variable set if you want to use GPT models
+OPENAI_API_KEY=
+
+# Get your Anthropic API Key in your account settings -
+# https://console.anthropic.com/settings/keys
+# You only need this environment variable set if you want to use Claude models
+ANTHROPIC_API_KEY=
+
+# Get your OpenRouter API Key in your account settings -
+# https://openrouter.ai/settings/keys
+# You only need this environment variable set if you want to use OpenRouter models
+OPEN_ROUTER_API_KEY=
+
+# Get your Google Generative AI API Key by following these instructions -
+# https://console.cloud.google.com/apis/credentials
+# You only need this environment variable set if you want to use Google Generative AI models
+GOOGLE_GENERATIVE_AI_API_KEY=
+
+# You only need this environment variable set if you want to use oLLAMA models
+# DONT USE http://localhost:11434 due to IPV6 issues
+# USE EXAMPLE http://127.0.0.1:11434
+OLLAMA_API_BASE_URL=
+
+# You only need this environment variable set if you want to use OpenAI Like models
+OPENAI_LIKE_API_BASE_URL=
+
+# You only need this environment variable set if you want to use Together AI models
+TOGETHER_API_BASE_URL=
+
+# Get your OpenAI Like API Key
+OPENAI_LIKE_API_KEY=
+
+# Get your Together API Key
+TOGETHER_API_KEY=
+
+# You only need this environment variable set if you want to use Hyperbolic models
+#Get your Hyperbolics API Key at https://app.hyperbolic.xyz/settings
+#baseURL="https://api.hyperbolic.xyz/v1/chat/completions"
+HYPERBOLIC_API_KEY=
+HYPERBOLIC_API_BASE_URL= 
+
+# Get your Mistral API Key by following these instructions -
+# https://console.mistral.ai/api-keys/
+# You only need this environment variable set if you want to use Mistral models
+MISTRAL_API_KEY=
+
+# Get the Cohere Api key by following these instructions -
+# https://dashboard.cohere.com/api-keys
+# You only need this environment variable set if you want to use Cohere models
+COHERE_API_KEY=
+
+# Get LMStudio Base URL from LM Studio Developer Console
+# Make sure to enable CORS
+# DONT USE http://localhost:1234 due to IPV6 issues
+# Example: http://127.0.0.1:1234
+LMSTUDIO_API_BASE_URL=
+
+# Get your xAI API key
+# https://x.ai/api
+# You only need this environment variable set if you want to use xAI models
+XAI_API_KEY=
+
+# Get your Perplexity API Key here - 
+# https://www.perplexity.ai/settings/api
+# You only need this environment variable set if you want to use Perplexity models
+PERPLEXITY_API_KEY=
+
+# Include this environment variable if you want more logging for debugging locally
+VITE_LOG_LEVEL=debug
+
+# Example Context Values for qwen2.5-coder:32b
+# 
+# DEFAULT_NUM_CTX=32768 # Consumes 36GB of VRAM
+# DEFAULT_NUM_CTX=24576 # Consumes 32GB of VRAM
+# DEFAULT_NUM_CTX=12288 # Consumes 26GB of VRAM
+# DEFAULT_NUM_CTX=6144 # Consumes 24GB of VRAM
+DEFAULT_NUM_CTX=
+
+================
+File: .gitignore
+================
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+.vscode
+
+================
+File: app/actions.ts
+================
+'use server';
+
+import { revalidatePath } from 'next/cache';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/drizzle';
+import { todos } from '@/lib/db/schema';
+
+export async function addTodo(_: any, formData: FormData) {
+  const text = formData.get('todo') as string;
+
+  if (text.trim()) {
+    await db.insert(todos).values({ text });
+    revalidatePath('/');
+    return { message: 'Todo added successfully', input: '' };
+  }
+
+  return { message: 'Todo cannot be empty', input: text };
+}
+
+export async function deleteTodo(_: any, formData: FormData) {
+  const id = formData.get('id') as string;
+
+  await db.delete(todos).where(eq(todos.id, id));
+
+  revalidatePath('/');
+  return { message: 'Todo deleted successfully' };
+}
+
+================
+File: app/api/generate-json/route.ts
+================
+import { openai } from "@ai-sdk/openai";
+import { createOpenAICompatible } from '@ai-sdk/openai-compatible';
+import { streamText, generateText  } from "ai";
+import { Langfuse } from 'langfuse';
+import { randomUUID } from "crypto";
+
+
+const langfuse = new Langfuse({
+  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
+  secretKey: process.env.LANGFUSE_SECRET_KEY,
+  baseUrl: process.env.LANGFUSE_BASEURL
+});
+
+const deepSeek = createOpenAICompatible({
+  name: 'deepseek',
+  baseURL: process.env.DEEPSEEK_BASEURL,
+  headers: {
+    Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY ?? ''}`,
+  },
+});
+
+// Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY ?? ''}`,
+
+export const maxDuration = 30;
+
+export async function POST(request: Request) {
+  const { code } = await request.json();
+  const traceId = randomUUID();
+
+  langfuse.trace({
+    id: traceId,
+    name: "scratchbridge-conversion",
+  });
+
+  console.log("begin generate-json")
+
+  try {
+    const result = await generateText({
+      model: deepSeek('deepseek-chat'),
+      system:
+        "Convert the following JavaScript code into Scratch JSON format. Ensure the output is valid and adheres to Scratch's capabilities. Return only the scratch compatible JSON with no other formatting, suitable for using as the scratch project.json file contents.",
+      messages: [
+        {
+          role: "user",
+          content: code,
+        },
+      ],
+      experimental_telemetry: {
+        isEnabled: true,
+        functionId: `generate-json-1`,
+        metadata: {
+          langfuseTraceId: traceId,
+          langfuseUpdateParent: false, // Do not update the parent trace with execution results
+        },
+      },
+    });
+
+    const scratchJson = result.text;
+    console.log(scratchJson)
+    langfuse.trace({
+      id: traceId,
+      name: "scratchbridge-conversion",
+      metadata: {
+        success: true,
+      },
+    });
+
+    return new Response(JSON.stringify({ success: true, scratchJson }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.log(error)
+
+    langfuse.trace({
+      id: traceId,
+      name: "scratchbridge-conversion",
+      metadata: {
+        success: false,
+        error: error.message,
+      },
+    });
+
+    return new Response(
+      JSON.stringify({
+        success: false,
+        message: "Failed to generate Scratch JSON",
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } finally {
+    await langfuse.flushAsync();
+  }
+}
+
+await langfuse.flushAsync();
+
+================
+File: app/globals.css
+================
+@import 'tailwindcss';
+
+@theme {
+  --font-family-sans: 'Geist', sans-serif;
+}
+
+================
+File: app/layout.tsx
+================
+import type { Metadata } from 'next';
+import { Geist_Mono } from 'next/font/google';
+import './globals.css';
+
+const geistMono = Geist_Mono({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'Scratch Bridge PoC',
+  description: 'A system that helps Scratchers utilize AI to bring their ideas to life by converting JavaScript code to and from into Scratch',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={`${geistMono.className} bg-gray-900 text-gray-200`}>
+        {children}
+      </body>
+    </html>
+  );
+}
+
+================
+File: app/page.tsx
+================
+"use client";
+
+import React, { useState } from "react";
+import CodeEditor from "../components/CodeEditor";
+import ResultDisplay from "../components/ResultDisplay";
+
+export default function Home() {
+  const [code, setCode] = useState("");
+  const [result, setResult] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setError("");
+    setResult("");
+
+    try {
+      const response = await fetch("/api/generate-json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ code }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate Scratch JSON");
+      }
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error("Failed to read response stream");
+      }
+
+      let resultText = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        resultText += new TextDecoder().decode(value);
+
+        // Pull out the scratchJson from the response, convert the /n and other escaped characters to make it readable, and set it as the result
+        const scratchJson = JSON.parse(resultText).scratchJson;
+
+        setResult(scratchJson);
+      }
+    } catch (err) {
+      setError("Failed to process the request");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">ScratchBridge PoC</h1>
+      <CodeEditor code={code} onChange={setCode} />
+      <button
+        className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
+        onClick={handleSubmit}
+        disabled={isLoading}
+      >
+        {isLoading ? "Processing..." : "Convert to Scratch JSON"}
+      </button>
+      <ResultDisplay result={result} error={error} isLoading={isLoading} />
+    </div>
+  );
+}
+
+================
+File: app/pg_postgres_starter.tsx
+================
+import { getTodos } from '@/lib/db/queries';
+import TodoList from './todo-list';
+
+// This will be replaced by 'use cache' soon
+export const dynamic = 'force-static';
+
+export default async function Home() {
+  const todos = await getTodos();
+
+  return (
+    <div className="min-h-screen p-8 bg-gray-900">
+      <main className="max-w-[350px] mx-auto">
+        <h1 className="text-2xl font-bold mb-4 text-center text-gray-100">
+          Postgres Starter
+        </h1>
+        <TodoList initialTodos={todos} />
+      </main>
+    </div>
+  );
+}
+
+================
+File: app/todo-list.tsx
+================
+'use client';
+
+import { useActionState } from 'react';
+import { addTodo, deleteTodo } from './actions';
+import { Loader2, Plus, Trash2 } from 'lucide-react';
+import { Todo } from '@/lib/db/queries';
+
+export default function TodoList({ initialTodos }: { initialTodos: Todo[] }) {
+  const [addState, addAction, isAddPending] = useActionState(addTodo, {
+    input: '',
+    message: '',
+  });
+  const [_, deleteAction] = useActionState(deleteTodo, {
+    message: '',
+  });
+
+  return (
+    <div className="space-y-4">
+      <form action={addAction} className="flex mb-4">
+        <input
+          type="text"
+          name="todo"
+          defaultValue={addState.input || ''}
+          placeholder="Add a new todo"
+          className="flex-grow mr-2 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-gray-200 text-base"
+        />
+        <button
+          type="submit"
+          disabled={isAddPending}
+          className="px-4 py-2 bg-gray-700 text-gray-200 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 disabled:opacity-50 text-sm font-medium"
+        >
+          {isAddPending ? (
+            <Loader2 className="size-5 animate-spin" />
+          ) : (
+            <Plus className="size-5" />
+          )}
+        </button>
+      </form>
+      {addState.message && (
+        <p className="text-sm text-gray-400 mb-2">{addState.message}</p>
+      )}
+      <ul className="space-y-2">
+        {initialTodos.map((todo) => (
+          <li
+            key={todo.id}
+            className="flex items-center justify-between py-2 px-4 rounded-lg bg-gray-800 shadow-sm"
+          >
+            <span className="text-gray-200 text-sm">{todo.text}</span>
+            <form action={deleteAction}>
+              <input type="hidden" name="id" value={todo.id} />
+              <button
+                type="submit"
+                className="text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-md p-1 disabled:opacity-50"
+              >
+                <Trash2 className="w-5 h-5" />
+              </button>
+            </form>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+================
+File: components/CodeEditor.tsx
+================
+import React from "react";
+import CodeMirror from "@uiw/react-codemirror";
+import { createTheme } from '@uiw/codemirror-themes';
+import { EditorView } from "@codemirror/view";
+import { javascript } from "@codemirror/lang-javascript";
+
+interface CodeEditorProps {
+  code: string;
+  onChange: (code: string) => void;
+}
+
+export default function CodeEditor({ code, onChange }: CodeEditorProps) {
+  return (
+    <CodeMirror
+      value={code}
+      height="300px"
+      extensions={[javascript()]}
+      onChange={(value) => onChange(value)}
+      theme="dark"
+    />
+  );
+}
+
+================
+File: components/ResultDisplay.tsx
+================
+import React from "react";
+import CodeMirror from "@uiw/react-codemirror";
+import { json } from "@codemirror/lang-json";
+
+interface ResultDisplayProps {
+  result: string;
+  error?: string;
+  isLoading: boolean;
+}
+
+export default function ResultDisplay({
+  result,
+  error,
+  isLoading,
+}: ResultDisplayProps) {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
+
+  return (
+    <div className="mt-4">
+      <h2 className="text-lg font-bold mb-2">Generated Scratch JSON:</h2>
+      <CodeMirror
+        value={result}
+        height="300px"
+        extensions={[json()]}
+        readOnly
+        theme="dark"
+      />
+      <button
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+        onClick={() => {
+          const blob = new Blob([result], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "project.json";
+          a.click();
+          URL.revokeObjectURL(url);
+        }}
+      >
+        Download Scratch JSON
+      </button>
+    </div>
+  );
+}
+
+================
+File: docker-compose.yml
+================
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: music_player_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "54322:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+================
+File: drizzle.config.ts
+================
+import type { Config } from 'drizzle-kit';
+
+export default {
+  schema: './lib/db/schema.ts',
+  out: './lib/db/migrations',
+  dialect: 'postgresql',
+  dbCredentials: {
+    url: process.env.POSTGRES_URL!,
+  },
+} satisfies Config;
+
+================
+File: instrumentation.ts
+================
+import { registerOTel } from "@vercel/otel";
+import { LangfuseExporter } from "langfuse-vercel";
+ 
+export function register() {
+  registerOTel({
+    serviceName: "langfuse-vercel-ai-nextjs-example",
+    traceExporter: new LangfuseExporter(),
+  });
+}
+
+================
+File: lib/db/drizzle.ts
+================
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
+import * as schema from './schema';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+if (!process.env.POSTGRES_URL) {
+  throw new Error('POSTGRES_URL environment variable is not set');
+}
+
+export const client = postgres(process.env.POSTGRES_URL);
+export const db = drizzle(client, { schema });
+
+================
+File: lib/db/migrate.ts
+================
+import dotenv from 'dotenv';
+import path from 'path';
+import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import { client, db } from './drizzle';
+
+dotenv.config();
+
+async function main() {
+  await migrate(db, {
+    migrationsFolder: path.join(process.cwd(), '/lib/db/migrations'),
+  });
+  console.log(`Migrations complete`);
+  await client.end();
+}
+
+main();
+
+================
+File: lib/db/migrations/0000_bitter_talisman.sql
+================
+CREATE TABLE IF NOT EXISTS "todos" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"text" varchar(255) NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+
+================
+File: lib/db/migrations/meta/_journal.json
+================
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1733332502118,
+      "tag": "0000_bitter_talisman",
+      "breakpoints": true
+    }
+  ]
+}
+
+================
+File: lib/db/migrations/meta/0000_snapshot.json
+================
+{
+  "id": "9038895f-cfe9-48b6-91dc-34962fbfe396",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.todos": {
+      "name": "todos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "text": {
+          "name": "text",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
+
+================
+File: lib/db/queries.ts
+================
+import { db } from './drizzle';
+import { todos } from './schema';
+import { InferSelectModel } from 'drizzle-orm';
+
+export type Todo = InferSelectModel<typeof todos>;
+
+export async function getTodos() {
+  return db
+    .select({
+      id: todos.id,
+      text: todos.text,
+      createdAt: todos.createdAt,
+      updatedAt: todos.updatedAt,
+    })
+    .from(todos);
+}
+
+================
+File: lib/db/schema.ts
+================
+import { pgTable, varchar, timestamp, uuid } from 'drizzle-orm/pg-core';
+
+export const todos = pgTable('todos', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  text: varchar('text', { length: 255 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+================
+File: lib/db/seed.ts
+================
+import { db } from './drizzle';
+import { todos } from './schema';
+import { seed } from 'drizzle-seed';
+
+async function main() {
+  await seed(db, { todos }).refine((f) => ({
+    todos: {
+      columns: {
+        text: f.loremIpsum(),
+      },
+      count: 5,
+    },
+  }));
+  process.exit();
+}
+
+main();
+
+================
+File: lib/db/setup.ts
+================
+import { exec } from 'node:child_process';
+import { promises as fs } from 'node:fs';
+import { promisify } from 'node:util';
+import readline from 'node:readline';
+import path from 'node:path';
+
+const execAsync = promisify(exec);
+
+function question(query: string): Promise<string> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise((resolve) =>
+    rl.question(query, (ans) => {
+      rl.close();
+      resolve(ans);
+    })
+  );
+}
+
+async function getPostgresURL(): Promise<string> {
+  console.log('Step 1: Setting up Postgres');
+  const dbChoice = await question(
+    'Do you want to use a local Postgres instance with Docker (L) or a remote Postgres instance (R)? (L/R): '
+  );
+
+  if (dbChoice.toLowerCase() === 'l') {
+    console.log('Setting up local Postgres instance with Docker...');
+    await setupLocalPostgres();
+    return 'postgres://postgres:postgres@localhost:54322/postgres';
+  } else {
+    console.log(
+      'You can find Postgres databases at: https://vercel.com/marketplace?category=databases'
+    );
+    return await question('Enter your POSTGRES_URL: ');
+  }
+}
+
+async function setupLocalPostgres() {
+  console.log('Checking if Docker is installed...');
+  try {
+    await execAsync('docker --version');
+    console.log('Docker is installed.');
+  } catch (error) {
+    console.error(
+      'Docker is not installed. Please install Docker and try again.'
+    );
+    console.log(
+      'To install Docker, visit: https://docs.docker.com/get-docker/'
+    );
+    process.exit(1);
+  }
+
+  console.log('Creating docker-compose.yml file...');
+  const dockerComposeContent = `
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: music_player_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "54322:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+`;
+
+  await fs.writeFile(
+    path.join(process.cwd(), 'docker-compose.yml'),
+    dockerComposeContent
+  );
+  console.log('docker-compose.yml file created.');
+
+  console.log('Starting Docker container with `docker compose up -d`...');
+  try {
+    await execAsync('docker compose up -d');
+    console.log('Docker container started successfully.');
+  } catch (error) {
+    console.error(
+      'Failed to start Docker container. Please check your Docker installation and try again.'
+    );
+    process.exit(1);
+  }
+}
+
+async function writeEnvFile(envVars: Record<string, string>) {
+  console.log('Step 3: Writing environment variables to .env');
+  const envContent = Object.entries(envVars)
+    .map(([key, value]) => `${key}=${value}`)
+    .join('\n');
+
+  await fs.writeFile(path.join(process.cwd(), '.env'), envContent);
+  console.log('.env file created with the necessary variables.');
+}
+
+async function main() {
+  const POSTGRES_URL = await getPostgresURL();
+
+  await writeEnvFile({
+    POSTGRES_URL,
+  });
+
+  console.log('🎉 Setup completed successfully!');
+}
+
+main().catch(console.error);
+
+================
+File: lib/dsl/generator.ts
+================
+import { convertCodeWithLLM } from "../llm/llmClient";
+
+export async function generateScratchJSON(code: string): Promise<any> {
+  return convertCodeWithLLM(code);
+}
+
+================
+File: lib/dsl/validation.ts
+================
+interface ValidationResult {
+  isValid: boolean;
+  message?: string;
+}
+
+export function validateCode(code: string): ValidationResult {
+  // Placeholder validation: always pass for now
+  return { isValid: true };
+}
+
+================
+File: lib/llm/llmClient.ts
+================
+// Not used. Code in /api instead
+import { OpenAI } from "openai";
+import { Langfuse } from "langfuse";
+import { randomUUID } from "crypto";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const langfuse = new Langfuse({
+  publicKey: process.env.LANGFUSE_PUBLIC_KEY,
+  secretKey: process.env.LANGFUSE_SECRET_KEY,
+});
+
+export async function convertCodeWithLLM(code: string): Promise<any> {
+  const traceId = randomUUID();
+
+  langfuse.trace({
+    id: traceId,
+    name: "scratchbridge-conversion",
+  });
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [
+        {
+          role: "system",
+          content:
+            "Convert the following JavaScript code into Scratch JSON format. Ensure the output is valid and adheres to Scratch's capabilities.",
+        },
+        {
+          role: "user",
+          content: code,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 1000,
+    });
+
+    const scratchJson = JSON.parse(response.choices[0].message.content || "{}");
+
+    langfuse.trace({
+      id: traceId,
+      name: "scratchbridge-conversion",
+      metadata: {
+        success: true,
+      },
+    });
+
+    return scratchJson;
+  } catch (error) {
+    langfuse.trace({
+      id: traceId,
+      name: "scratchbridge-conversion",
+      metadata: {
+        success: false,
+        error: error.message,
+      },
+    });
+
+    throw error;
+  } finally {
+    await langfuse.flushAsync();
+  }
+}
+
+================
+File: next.config.ts
+================
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {};
+
+export default nextConfig;
+
+================
+File: package.json
+================
+{
+  "name": "scratchbridge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "db:setup": "npx tsx lib/db/setup.ts",
+    "db:seed": "npx tsx lib/db/seed.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "npx tsx lib/db/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.13",
+    "@ai-sdk/openai-compatible": "^0.0.13",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/view": "^6.36.1",
+    "@opentelemetry/api-logs": "^0.57.0",
+    "@opentelemetry/instrumentation": "^0.57.0",
+    "@opentelemetry/sdk-logs": "^0.57.0",
+    "@tailwindcss/postcss": "4.0.0-beta.8",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "@uiw/codemirror-themes": "^4.23.7",
+    "@uiw/react-codemirror": "^4.23.7",
+    "@vercel/otel": "^1.10.0",
+    "ai": "^4.0.27",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.28.1",
+    "drizzle-orm": "^0.36.4",
+    "drizzle-seed": "^0.1.3",
+    "langfuse": "^3.32.0",
+    "langfuse-vercel": "^3.32.0",
+    "lucide-react": "^0.465.0",
+    "next": "15.1.3",
+    "postgres": "^3.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "4.0.0-beta.8",
+    "typescript": "^5.7.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.1.3"
+  }
+}
+
+================
+File: postcss.config.mjs
+================
+/** @type {import('postcss-load-config').Config} */
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
+
+================
+File: README.md
+================
+# ScratchBridge
+A system that helps Scratchers utilize AI to bring their ideas to life by converting JavaScript code to and from into Scratch projects.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [Postgres](https://www.postgresql.org/)
+- **ORM**: [Drizzle](https://orm.drizzle.team/)
+- LangFuse for observability and analytics
+- Vercel AI SDK
+
+## Getting Started
+
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+```bash
+pnpm install
+```
+
+Optional upgrade modules
+```bash
+pnpm upgrade
+```
+
+## Running Locally
+
+Use the included setup script to create your `.env` file with the Postgres server address:
+
+```bash
+pnpm db:setup
+```
+
+Then, run the database migrations and seed the database:
+
+```bash
+pnpm db:generate
+pnpm db:migrate
+pnpm db:seed
+```
+
+Finally, run the Next.js development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
+
+================
+File: testing/testapi.http
+================
+### Test
+POST http://localhost:3000/api/generate-json HTTP/1.1
+Content-Type: application/json
+
+{"code":"// 12:22 Create a new Scratch project instance\nconst game = new ScratchGame();\n\n// Create a score variable\nconst score = game.createVariable('score', 0);\n"}
+
+================
+File: tsconfig.json
+================
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
+
+
+================================================================
+End of Codebase
+================================================================
